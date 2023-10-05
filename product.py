@@ -4,12 +4,9 @@ class Product:
         self.price = price
         self.quantity = quantity
 
-    
-
-    #esto es como se guardara en la base de datos, es decir es la collection
-    def toDbConnection(self):
-        return {
-            'name':self.name,
-            'price':self.quantity,
-            'quantity':self.quantity
+    def toDBCollection(self):
+        return{
+            'name': self.name,
+            'price': self.price,
+            'quantity': self.quantity
         }

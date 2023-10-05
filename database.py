@@ -11,16 +11,13 @@
 from pymongo import MongoClient
 import certifi
 
-MONGO_URI = 'mongodb+srv://harry:root@cluster0.aniauvv.mongodb.net/?retryWrites=true&w=majority'
-
+MONGO_URI = 'mongodb+srv://mdDicta2023:YtTQsy7uWbkKyR7U@dicta.3pwgqtl.mongodb.net/bddictacolombia?retryWrites=true&w=majority'
 ca = certifi.where()
-
 
 def dbConnection():
     try:
-        client = MongoClient.connect(MONGO_URI, tlsCAFile=ca)
-        db = client["db_products"]
+        client = MongoClient(MONGO_URI, tlsCAFile=ca)
+        db = client["dbb_products_app"]
     except ConnectionError:
-        print("Error de conexion con la base de datos")
-    
+        print('Error de conexión con la bdd')
     return db
