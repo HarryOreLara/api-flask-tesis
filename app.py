@@ -11,7 +11,7 @@ import re
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 import pickle
-
+from datetime import datetime
 
 db = dbase.dbConnection()
 
@@ -48,6 +48,8 @@ def preprocess_text(text):
 ########################################
 
 
+
+
 # Rutas de la aplicación
 @app.route('/')
 def home():
@@ -66,6 +68,7 @@ def addMessage():
     nombre = analisis_data['nombre']
     frase_body = analisis_data['frase']
     fecha = analisis_data['fecha']
+
     ##PReparado para recibir el mensaje de procesmiento de la red neuronal
     #estado_animo = "Enojado"
 
@@ -84,6 +87,7 @@ def addMessage():
     frase = frase_body
     estado_animositos = clase_predicha[0]
     estado_animo = str(estado_animositos)
+
 
 
 
