@@ -65,7 +65,6 @@ def addMessage():
     analisis_data = request.get_json()
 
     idPersona = analisis_data['idPersona']
-    nombre = analisis_data['nombre']
     frase_body = analisis_data['frase']
     fecha = analisis_data['fecha']
 
@@ -97,8 +96,8 @@ def addMessage():
 
 
 
-    if idPersona and nombre and frase and fecha and estado_animo:
-        analis = Analisis(idPersona, nombre, frase, fecha, estado_animo)
+    if idPersona and frase and fecha and estado_animo:
+        analis = Analisis(idPersona, frase, fecha, estado_animo)
         analisis.insert_one(analis.toDBCollection())
         response = jsonify({
             'status': 'success' if analis else 'failure'
